@@ -1,6 +1,6 @@
 package org.bootapp.api.user;
 
-import org.bootapp.datamodel.User;
+import org.bootapp.dto.UserDTO;
 import org.bootapp.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public String saveUser(@RequestBody User user){
+	public String saveUser(@RequestBody UserDTO user){
 		return userService.saveUser(user);
 	}
 }

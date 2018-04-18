@@ -3,7 +3,9 @@ package org.bootapp.service.user;
 import java.util.List;
 
 import org.bootapp.datamodel.User;
+import org.bootapp.dto.UserDTO;
 import org.bootapp.repo.user.UserDAO;
+import org.bootapp.util.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,8 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 	@Override
-	public String saveUser(User user) {
-		return userDao.save(user).getUsername();
+	public String saveUser(UserDTO user) {
+		return userDao.save(UserMapper.mapUser(user)).getUsername();
 	}
 
 }
