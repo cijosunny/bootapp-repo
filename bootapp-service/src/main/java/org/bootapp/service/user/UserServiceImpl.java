@@ -24,5 +24,9 @@ public class UserServiceImpl implements UserService{
 	public String saveUser(UserDTO user) {
 		return userDao.save(UserMapper.mapUser(user)).getUsername();
 	}
+	@Override
+	public List<User> list() {
+		return userDao.findAll();
+	}
 
 }

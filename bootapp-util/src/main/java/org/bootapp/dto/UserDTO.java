@@ -1,5 +1,8 @@
 package org.bootapp.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 	private String username;
 	private String password;

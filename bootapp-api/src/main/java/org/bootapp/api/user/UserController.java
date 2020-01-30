@@ -1,5 +1,9 @@
 package org.bootapp.api.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bootapp.datamodel.User;
 import org.bootapp.dto.UserDTO;
 import org.bootapp.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +28,18 @@ public class UserController {
 	@PostMapping
 	public String saveUser(@RequestBody UserDTO user){
 		return userService.saveUser(user);
+	}
+	
+	@GetMapping
+	public List<UserDTO> list(){
+		List<User> users = userService.list();
+		List<UserDTO> userslist = new ArrayList<>();
+		UserDTO userDTO;
+		for (User user : users) {
+			userDTO = new UserDTO();
+			userDTO.setUsername(user.getUsername());
+			userslist.add(userDTO);
+		}
+		return userslist;
 	}
 }
